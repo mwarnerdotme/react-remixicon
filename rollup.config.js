@@ -7,7 +7,7 @@ export default {
   input: 'src/index.ts',
   output: [
     {
-      name: 'react-remixicons',
+      name: '@mwarnerdotme/react-remixicon',
       format: 'cjs',
       file: 'dist/index.js'
     },
