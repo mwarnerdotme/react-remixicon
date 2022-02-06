@@ -1,0 +1,18 @@
+{
+  "extends": ["@remix-run/eslint-config"],
+  "plugins": ["prettier"],
+  "rules": {
+    // prettier
+    "prettier/prettier": [
+      "warn",
+      {
+        "trailingComma": "all",
+        "tabWidth": 2,
+        "semi": false,
+        "singleQuote": true,
+        "arrowParens": "always",
+        "jsxSingleQuote": false
+      }
+    ]
+  }
+}
