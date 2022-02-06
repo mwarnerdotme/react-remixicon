@@ -1,8 +1,5 @@
 import type { IconSize } from '.'
 
-// .ri-lg { font-size: 1.3333em; line-height: 0.75em; vertical-align: -.0667em; }
-// .ri-xl { font-size: 1.5em; line-height: 0.6666em; vertical-align: -.075em; }// .ri-xs { font-size: .75em; }// .ri-1x { font-size: 1em; }
-
 const calculateWidth = (size: IconSize) => {
   switch (size) {
     case 'xxs':

@@ -1,7 +1,7 @@
-import { FC, forwardRef, HTMLAttributes, memo, SVGAttributes } from 'react'
+import { forwardRef, memo, StyleHTMLAttributes, SVGAttributes } from 'react'
+import { IconDefinition } from '../../icons'
 import calculateWidth from './calculateWidth'
-
-type IconProp = FC<SVGAttributes<SVGElement>>
+import Icon from './icon'
 
 export type IconVariant = 'fill' | 'line'
 export type IconSize =
@@ -22,17 +22,17 @@ export type IconSize =
   | '10x'
 
 type Props = {
-  icon: IconProp
+  icon: IconDefinition
   size?: IconSize
   fixedWidth?: boolean
   // .ri-fw { text-align: center; width: 1.25em; }
   color?: string
   className?: string
-  style?: HTMLAttributes<HTMLDivElement>
-}
+  style?: StyleHTMLAttributes<SVGElement>
+} & SVGAttributes<SVGElement>
 
 const RemixIcon = memo<Props>(
-  forwardRef(function RemixIcon(props, ref) {
+  forwardRef((props, ref) => {
     const {
       icon,
       size = '1x',
@@ -40,13 +40,16 @@ const RemixIcon = memo<Props>(
       className,
       color,
       style,
+      ...attrs
     } = props
-
-    const Icon = icon
 
     const width = calculateWidth(size)
 
     const defaultStyle = {
+      width,
+      marginLeft: fixedWidth ? 'auto' : 0,
+      marginRight: fixedWidth ? 'auto' : 0,
+      fill: color ? color : 'currentcolor',
       display: 'inline-block',
     }
     const combinedStyle = {
@@ -55,16 +58,12 @@ const RemixIcon = memo<Props>(
     }
 
     return (
-      <div style={combinedStyle} className={className}>
-        <Icon
-          style={{
-            width,
-            marginLeft: fixedWidth ? 'auto' : 0,
-            marginRight: fixedWidth ? 'auto' : 0,
-            fill: color ? color : 'currentcolor',
-          }}
-        />
-      </div>
+      <Icon
+        icon={icon}
+        className={className}
+        style={combinedStyle}
+        {...attrs}
+      />
     )
   }),
 )
