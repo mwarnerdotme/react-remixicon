@@ -11,7 +11,7 @@ const exportIconTypescriptFile = (iconName: string, iconData: IconData) => {
     const iconDefinition: IconDefinition = {
       name: '${iconName}',
       pathData: '${pathData}',
-      ${fillRule ? 'fillRule: \'' + fillRule + '\',' : ''}
+      ${fillRule ? "fillRule: '" + fillRule + "'," : ''}
     }
     
     export default iconDefinition

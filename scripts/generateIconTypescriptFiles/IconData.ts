@@ -1,3 +1,3 @@
-import { IconDefinition } from "../../src"
+import { IconDefinition } from '../../src/icons/types/IconDefinition'
 
-export type IconData = Omit<IconDefinition, "name">
+export type IconData = Omit<IconDefinition, 'name'>

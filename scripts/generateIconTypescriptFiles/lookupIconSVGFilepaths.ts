@@ -10,27 +10,31 @@ const lookupIconSVGFilepaths = (baseFilepath: string) => {
       }
 
       // get filepaths from every directory in base
-      const filepaths = await Promise.all(subDirectories.map(async (subDirectory) => {
-        const svgFilepaths = await new Promise<string[]>((resolve, reject) => {
-          readdir(`${baseFilepath}/${subDirectory}`, (err, filenames) => {
-            if (err) {
-              reject(err)
-              throw err
-            }
+      const filepaths = await Promise.all(
+        subDirectories.map(async (subDirectory) => {
+          const svgFilepaths = await new Promise<string[]>(
+            (resolve, reject) => {
+              readdir(`${baseFilepath}/${subDirectory}`, (err, filenames) => {
+                if (err) {
+                  reject(err)
+                  throw err
+                }
 
-            const newFilepaths = filenames.map((filename) => {
-              return `${baseFilepath}/${subDirectory}/${filename}`
-            })
+                const newFilepaths = filenames.map((filename) => {
+                  return `${baseFilepath}/${subDirectory}/${filename}`
+                })
 
-            resolve(newFilepaths)
+                resolve(newFilepaths)
+              })
+            },
+          ).catch((err) => {
+            reject(err)
+            throw err
           })
-        }).catch((err) => {
-          reject(err)
-          throw err
-        })
 
-        return svgFilepaths
-      }))
+          return svgFilepaths
+        }),
+      )
 
       resolve(filepaths.flat())
     })

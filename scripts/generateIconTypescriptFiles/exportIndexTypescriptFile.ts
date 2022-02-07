@@ -16,12 +16,12 @@ const exportIndexTypescriptFile = async (iconNames: string[]) => {
   const lines = (() => {
     return iconNames.map((iconName) => {
       const normalizedIconName = normalizeIconName(iconName)
-  
+
       const line = `export { default as ${normalizedIconName} } from './${iconName}'\n`
       return line
     })
   })()
-  
+
   const contents = lines.join('')
 
   const template = `
@@ -32,7 +32,6 @@ const exportIndexTypescriptFile = async (iconNames: string[]) => {
 
   writeFile('./src/icons/index.ts', template, (err) => {
     if (err) throw new Error(err.toString())
-    console.log(`Successfully generated the icon index file`)
   })
 }
 

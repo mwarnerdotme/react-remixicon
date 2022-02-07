@@ -32,7 +32,7 @@ const generateIconTypescriptFiles = async () => {
         // export icon ts file
         await exportIconTypescriptFile(iconName, pathData)
 
-        // console.log(`Successfully generated an icon file for ${iconName}`)
+        console.log(`Successfully generated an icon file for ${iconName}`)
         successes.set(iconName, true)
         resolve()
       } catch (err: any) {
@@ -46,11 +46,21 @@ const generateIconTypescriptFiles = async () => {
   // export an index.ts file for all icons
   try {
     const successfulIconNames = Array.from(successes.keys())
-    exportIndexTypescriptFile(successfulIconNames)
-  } catch (e) {}
+    await exportIndexTypescriptFile(successfulIconNames)
+    console.log(`Successfully generated the icon index file`)
+  } catch (e) {
+    throw e
+  }
 
   // Log the errors
-  console.error('errors', JSON.stringify(Array.from(errors.entries()), null, 2))
+  const errorsArray = Array.from(errors.entries())
+  if (errorsArray.length > 0) {
+    console.error(
+      '\nThe following icon SVG files errored when translating to TS IconDefinition files:',
+    )
+    console.error(JSON.stringify(errorsArray, null, 2))
+    // process.exit(1) // TODO: fix the final errors and re-enable this line for CI/CD
+  }
 }
 
 generateIconTypescriptFiles()
