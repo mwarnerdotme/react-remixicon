@@ -54,7 +54,7 @@ const RemixIcon = memo<Props>(
       >
         <g>
           <path fill="none" d="M0 0h24v24H0z" />
-          <path d={icon.pathData} />
+          <path fillRule={icon.fillRule} d={icon.pathData} />
         </g>
       </svg>
     )
