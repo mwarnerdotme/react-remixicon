@@ -14,20 +14,19 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "yarn clean && yarn build:execute && yarn build:post",
+    "build": "yarn reset && yarn build:execute && yarn build:post",
     "build:execute": "rollup -c rollup.config.js",
     "build:post": "mv ./dist/dist/* ./dist && rm -rf ./dist/dist",
     "icons:generate": "ts-node ./scripts/generateIconTypescriptFiles.ts",
-    "icons:clean": "rm -f ./src/icons/*.ts",
-    "dist": "NODE_ENV=production yarn build",
+    "icons:reset": "rm -f ./src/icons/*.ts",
+    "dist": "NODE_ENV=production yarn icons:reset && yarn icons:generate && yarn build",
     "lint": "eslint ./src",
     "prepack": "yarn dist",
-    "clean": "rm -rf dist"
+    "reset": "rm -rf dist"
   },
   "peerDependencies": {
     "react": ">=16.x",
-    "react-dom": ">=16.x",
-    "remixicon": ">=2.5.0"
+    "react-dom": ">=16.x"
   },
   "devDependencies": {
     "@remix-run/eslint-config": "^1.1.3",
