@@ -1,8 +1,9 @@
 {
   "name": "@mwarnerdotme/react-remixicon",
   "description": "React component for the RemixIcon icon library",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "homepage": "https://gitlab.com/mwarnerdotme/react-remixicon",
   "repository": {
@@ -17,11 +18,12 @@
     "build": "yarn reset && yarn build:execute && yarn build:post",
     "build:execute": "rollup -c rollup.config.js",
     "build:post": "mv ./dist/dist/* ./dist && rm -rf ./dist/dist",
-    "icons:generate": "ts-node ./scripts/generateIconTypescriptFiles.ts",
+    "icons:generate": "ts-node ./scripts/generateIconTypescriptFiles/index.ts",
     "icons:reset": "rm -f ./src/icons/*.ts",
     "dist": "NODE_ENV=production yarn icons:reset && yarn icons:generate && yarn build",
-    "lint": "eslint ./src",
+    "lint": "eslint ./src ./scripts",
     "prepack": "yarn dist",
+    "postpack": "yarn reset",
     "reset": "rm -rf dist"
   },
   "peerDependencies": {
