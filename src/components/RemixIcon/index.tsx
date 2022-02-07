@@ -1,7 +1,6 @@
 import { forwardRef, memo, StyleHTMLAttributes, SVGAttributes } from 'react'
 import { IconDefinition } from '../../icons/types/IconDefinition'
 import calculateWidth from './calculateWidth'
-import Icon from './icon'
 
 export type IconVariant = 'fill' | 'line'
 export type IconSize =
@@ -24,8 +23,6 @@ export type IconSize =
 type Props = {
   icon: IconDefinition
   size?: IconSize
-  fixedWidth?: boolean
-  // .ri-fw { text-align: center; width: 1.25em; }
   color?: string
   className?: string
   style?: StyleHTMLAttributes<SVGElement>
@@ -33,22 +30,12 @@ type Props = {
 
 const RemixIcon = memo<Props>(
   forwardRef((props, ref) => {
-    const {
-      icon,
-      size = '1x',
-      fixedWidth = false,
-      className,
-      color,
-      style,
-      ...attrs
-    } = props
+    const { icon, size = '1x', className, color, style, ...attrs } = props
 
     const width = calculateWidth(size)
 
     const defaultStyle = {
       width,
-      marginLeft: fixedWidth ? 'auto' : 0,
-      marginRight: fixedWidth ? 'auto' : 0,
       fill: color ? color : 'currentcolor',
       display: 'inline-block',
     }
@@ -58,12 +45,18 @@ const RemixIcon = memo<Props>(
     }
 
     return (
-      <Icon
-        icon={icon}
-        className={className}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
         style={combinedStyle}
+        className={className}
         {...attrs}
-      />
+      >
+        <g>
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path d={icon.pathData} />
+        </g>
+      </svg>
     )
   }),
 )
