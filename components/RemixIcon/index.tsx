@@ -1,7 +1,7 @@
 import { forwardRef, memo, StyleHTMLAttributes, SVGAttributes } from 'react'
 import { IconDefinition } from '../../icons/types/IconDefinition'
-import calculateWidth from './calculateWidth'
-import Icon from './icon'
+import calculateWidth from '@mwarnerdotme/react-remixicon/components/RemixIcon/calculateWidth'
+import Icon from '@mwarnerdotme/react-remixicon/components/RemixIcon/icon'
 
 export type IconVariant = 'fill' | 'line'
 export type IconSize =
