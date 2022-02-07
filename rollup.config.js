@@ -3,16 +3,28 @@ import commonjs from "@rollup/plugin-commonjs"
 import typescript from '@rollup/plugin-typescript'
 import svgr from '@svgr/rollup'
 
+const name = '@mwarnerdotme/react-remixicon'
+const globals = {
+  react: 'React',
+}
+
 export default {
   input: 'src/index.ts',
   output: [
     {
-      name: '@mwarnerdotme/react-remixicon',
-      format: 'cjs',
+      name,
+      globals,
+      format: 'umd',
       file: 'dist/index.js'
     },
+    {
+      name,
+      globals,
+      format: 'es',
+      file: 'dist/index.es.js'
+    }
   ],
-  external: [ 'react', 'remixicon' ],
+  external: [ 'react' ],
   plugins: [
     resolve(),
     commonjs(),
