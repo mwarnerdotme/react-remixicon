@@ -1,5 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve'
-import commonjs from "@rollup/plugin-commonjs"
+import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import svgr from '@svgr/rollup'
 
@@ -15,22 +15,22 @@ export default {
       name,
       globals,
       format: 'umd',
-      file: 'dist/index.js'
+      file: 'dist/index.js',
     },
     {
       name,
       globals,
       format: 'es',
-      file: 'dist/index.es.js'
-    }
+      file: 'dist/index.es.js',
+    },
   ],
-  external: [ 'react' ],
+  external: ['react'],
   plugins: [
     resolve(),
     commonjs(),
-    typescript({ tsconfig: './tsconfig.json'  }),
+    typescript({ tsconfig: './tsconfig.json' }),
     svgr({
       typescript: true,
     }),
-  ]
+  ],
 }

@@ -10,7 +10,7 @@
     "strict": true,
     "noEmit": true,
     "declaration": true,
-    "rootDir": "./src",
+    "rootDir": ".",
     "declarationDir": "./dist",
     "outDir": "./dist",
   }

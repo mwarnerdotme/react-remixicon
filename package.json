@@ -15,9 +15,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "yarn reset && yarn build:execute && yarn build:post",
-    "build:execute": "rollup -c rollup.config.js",
-    "build:post": "mv ./dist/dist/* ./dist && rm -rf ./dist/dist",
+    "build": "yarn reset && yarn build:execute",
+    "build:execute": "rollup -c rollup.config.mjs",
     "icons:generate": "ts-node ./scripts/generateIconTypescriptFiles/index.ts",
     "icons:reset": "rm -f ./src/icons/*.ts",
     "dist": "NODE_ENV=production yarn icons:reset && yarn icons:generate && yarn build",
