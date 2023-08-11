@@ -1,5 +1,5 @@
 import { writeFile } from 'fs'
-import { IconData } from './IconData'
+import type { IconData } from './IconData'
 
 const exportIconTypescriptFile = (iconName: string, iconData: IconData) => {
   const { pathData, fillRule } = iconData

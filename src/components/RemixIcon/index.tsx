@@ -1,5 +1,6 @@
-import { forwardRef, memo, StyleHTMLAttributes, SVGAttributes } from 'react'
-import { IconDefinition } from '../../icons/types/IconDefinition'
+import type { FC, StyleHTMLAttributes, SVGAttributes } from 'react'
+import { memo } from 'react'
+import type { IconDefinition } from '../../icons/types/IconDefinition'
 import calculateWidth from './calculateWidth'
 
 export type IconVariant = 'fill' | 'line'
@@ -28,10 +29,8 @@ type Props = {
   style?: StyleHTMLAttributes<SVGElement>
 } & SVGAttributes<SVGElement>
 
-const RemixIcon = memo<Props>(
-  forwardRef((props, ref) => {
-    const { icon, size = '1x', className, color, style, ...attrs } = props
-
+const RemixIcon: FC<Props> = memo<Props>(
+  ({ icon, size = '1x', className, color, style, ...attrs }) => {
     const width = calculateWidth(size)
 
     const defaultStyle = {
@@ -58,7 +57,7 @@ const RemixIcon = memo<Props>(
         </g>
       </svg>
     )
-  }),
+  },
 )
 
 export default RemixIcon

@@ -1,4 +1,4 @@
-import { IconData } from './IconData'
+import type { IconData } from './IconData'
 
 const extractIconData = async (content: string[]): Promise<IconData> => {
   for (const line of content) {
