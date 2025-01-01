@@ -1,6 +1,18 @@
-.DS_*
+# System Files
+.DS_Store
+Thumbs.db
 
+# Dependencies
 node_modules
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Build
 dist
 
+# Logs
 *.log
