@@ -55,5 +55,6 @@
     "> 1%",
     "last 2 versions",
     "ie > 10"
-  ]
+  ],
+  "packageManager": "yarn@4.6.0"
 }
