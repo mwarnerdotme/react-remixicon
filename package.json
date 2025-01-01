@@ -1,7 +1,7 @@
 {
   "name": "@mwarnerdotme/react-remixicon",
   "description": "React component for the RemixIcon icon library",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -25,28 +25,28 @@
     "reset": "rm -rf dist"
   },
   "peerDependencies": {
-    "react": ">=16.x",
-    "react-dom": ">=16.x"
+    "react": ">=19.x",
+    "react-dom": ">=19.x"
   },
   "devDependencies": {
-    "@remix-run/eslint-config": "^1.19.3",
-    "@rollup/plugin-commonjs": "^25.0.4",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-typescript": "^11.1.2",
-    "@svgr/rollup": "^8.0.1",
-    "@types/node": "^20.4.9",
-    "@types/react": "^18.2.20",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
-    "eslint": "^8.47.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@remix-run/eslint-config": "^2.15.2",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@svgr/rollup": "^8.1.0",
+    "@types/node": "^22.10.3",
+    "@types/react": "^19.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.4.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "remixicon": "^3.5.0",
-    "rollup": "^3.28.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "rollup": "^4.29.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   },
   "files": [
     "dist"
