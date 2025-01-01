@@ -1,5 +1,5 @@
-import type { FC, StyleHTMLAttributes, SVGAttributes } from 'react'
-import { memo } from 'react'
+import type { StyleHTMLAttributes, SVGAttributes } from 'react'
+import { forwardRef } from 'react'
 import type { IconDefinition } from '../../icons/types/IconDefinition'
 import calculateWidth from './calculateWidth'
 
@@ -29,8 +29,8 @@ type Props = {
   style?: StyleHTMLAttributes<SVGElement>
 } & SVGAttributes<SVGElement>
 
-const RemixIcon: FC<Props> = memo<Props>(
-  ({ icon, size = '1x', className, color, style, ...attrs }) => {
+const RemixIcon = forwardRef<SVGSVGElement, Props>(
+  ({ icon, size = '1x', className, color, style, ...attrs }, ref) => {
     const width = calculateWidth(size)
 
     const defaultStyle = {
@@ -45,6 +45,7 @@ const RemixIcon: FC<Props> = memo<Props>(
 
     return (
       <svg
+        ref={ref}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         style={combinedStyle}
@@ -59,5 +60,7 @@ const RemixIcon: FC<Props> = memo<Props>(
     )
   },
 )
+
+RemixIcon.displayName = 'RemixIcon'
 
 export default RemixIcon
