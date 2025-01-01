@@ -1,7 +1,7 @@
 {
   "name": "@mwarnerdotme/react-remixicon",
   "description": "React component for the RemixIcon icon library",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
